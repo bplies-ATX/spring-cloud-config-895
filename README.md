@@ -11,8 +11,7 @@ Execute `./gradlew bootRun`
 In a terminal invoke: `curl http://user:test@localhost:8888/foo/encrypt`
 
 Notice the secret was not decrypted
-```"config.foo":"AQCohs2V6P8/UiG6a4TF/CZTCBdt5Q7wvNvcyf6vs2ByK2ZYSM77Nu0sOAduxUpMbVwJ/syecmkIXR+hU3EfT2uqPieA7/v5n33ppqIQ9JAt5JggdYIGe+wX25zU3DTXOOJdAAMzNX+zjOVyCh0QtmJf/kFslg6NqQq0E+kSg3zBi3AnkKj5BLnLIxkjxzKA4mnDXpSm7ekLZZP2iQSYSW/82AC7UOLLzTqwInMI3tJLW1e9Ne+LDsjmSxA+nkK9zhidtXPwb/SPaNF74cJCEf9mgzzKYwJlwqChLzJt8UQ1jHwRc8B6FufmizUHSp27nxdtVB4HMqh3nNsMCy137Ces58T09ZS/y/cYNRxcFbp78MHFHUqAgbC0B/p5t6h4XbQ="
-```
+`"config.foo":"AQCohs2V6P8/UiG6a4TF/CZTCBdt5Q7wvNvcyf6vs2ByK2ZYSM77Nu0sOAduxUpMbVwJ/syecmkIXR+hU3EfT2uqPieA7/v5n33ppqIQ9JAt5JggdYIGe+wX25zU3DTXOOJdAAMzNX+zjOVyCh0QtmJf/kFslg6NqQq0E+kSg3zBi3AnkKj5BLnLIxkjxzKA4mnDXpSm7ekLZZP2iQSYSW/82AC7UOLLzTqwInMI3tJLW1e9Ne+LDsjmSxA+nkK9zhidtXPwb/SPaNF74cJCEf9mgzzKYwJlwqChLzJt8UQ1jHwRc8B6FufmizUHSp27nxdtVB4HMqh3nNsMCy137Ces58T09ZS/y/cYNRxcFbp78MHFHUqAgbC0B/p5t6h4XbQ="`
 
 CTRL+C to kill the process
 
