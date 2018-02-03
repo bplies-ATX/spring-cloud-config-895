@@ -17,7 +17,6 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply plugin: 'maven'
 apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
@@ -25,11 +24,6 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
-
-    maven {
-        name 'jboss'
-        url 'http://repository.jboss.org/nexus/content/groups/public/'
-    }
 }
 
 // WORKS with cloudVersion = '1.2.2.RELEASE'
@@ -50,10 +44,6 @@ dependencyManagement {
 dependencies {
     compile "org.springframework.cloud:spring-cloud-config-server:${project.cloudVersion}"
     compile "org.springframework.cloud:spring-cloud-starter-config:${project.cloudVersion}"
-    compile "org.springframework.boot:spring-boot-starter-actuator:${project.bootVersion}"
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:"${project.bootVersion}"
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:"${project.bootVersion}"
-
 
     runtime "org.springframework.boot:spring-boot-starter-tomcat:${project.bootVersion}"
 }
