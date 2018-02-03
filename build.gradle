@@ -1,0 +1,75 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "http://repo.maven.apache.org/maven2" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+
+    project.ext {
+        bootVersion = '1.5.9.RELEASE'
+//        cloudVersion = '1.2.2.RELEASE'  // Works
+        cloudVersion = '1.3.4.RELEASE' // Doesn't work
+        securityVersion = '2.2.1.RELEASE'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+
+    maven {
+        name 'jboss'
+        url 'http://repository.jboss.org/nexus/content/groups/public/'
+    }
+}
+
+// WORKS with cloudVersion = '1.2.2.RELEASE'
+//dependencyManagement {
+//    imports {
+//        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Camden.SR2'
+//    }
+//}
+
+// #895:  Fails with or without this
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.SR5'
+    }
+}
+
+
+dependencies {
+    compile "org.springframework.cloud:spring-cloud-config-server:${project.cloudVersion}"
+    compile "org.springframework.cloud:spring-cloud-starter-config:${project.cloudVersion}"
+    compile "org.springframework.boot:spring-boot-starter-actuator:${project.bootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:"${project.bootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:"${project.bootVersion}"
+
+
+    runtime "org.springframework.boot:spring-boot-starter-tomcat:${project.bootVersion}"
+}
+
+bootRun {
+    systemProperties['spring.profiles.active'] = System.properties['spring.profiles.active'] ?: 'localstandalone'
+}
+
+bootRepackage {
+    mainClass = "Application"
+}
+
+springBoot {
+    executable = true
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.3'
+}

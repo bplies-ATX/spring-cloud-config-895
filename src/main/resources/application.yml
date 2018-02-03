@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+encrypt:
+  keyStore:
+    location: classpath:server.jks
+    password: letmein
+#    alias: mykey
+    secret: changeme
+
+---
+spring.profiles: localstandalone
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          # Serve a local clone of whatever repo
+          uri: file:/Users/bplies/Documents/workspace/spring-cloud-config/spring-cloud-config-server/target/repos/encrypt-repo
+
+security.user.password: test
