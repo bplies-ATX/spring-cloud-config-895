@@ -1,3 +1,8 @@
 spring:
   application:
     name: spring-cloud-config895
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: true
